@@ -37,6 +37,8 @@ spec:
       containers:
       - name: mysql
         image: joindevops/mysql:v1.0
+        nodeSelector:
+          topology.kubernetes.io/zone: us-east-1c # bcz our node is in 1c region, we need our volume in same region only
         ports:
         - containerPort: 80
           name: web
